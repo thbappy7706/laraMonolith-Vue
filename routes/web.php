@@ -30,7 +30,7 @@ Route::get('hello', function () {
         'name' =>'Tanvir Hossen Bappy',
         'profession' =>'BackEnd Developer',
         ]);
-});
+})->name('hello');
 
 Route::get('/dashboard', function () {
     return Inertia::render('Dashboard');

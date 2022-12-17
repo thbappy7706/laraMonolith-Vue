@@ -27,6 +27,7 @@ defineProps({
                         <a href="#_" class="mr-5 font-medium leading-6 text-gray-600 hover:text-gray-900">Features</a>
                         <a href="#_" class="mr-5 font-medium leading-6 text-gray-600 hover:text-gray-900">Pricing</a>
                         <a href="#_" class="mr-5 font-medium leading-6 text-gray-600 hover:text-gray-900">Blog</a>
+                        <Link :href="route('hello')" class="mr-5 font-medium leading-6 text-gray-600 hover:text-gray-900">Greeting</Link>
                     </nav>
                 </div>
 
