@@ -26,6 +26,7 @@ Route::get('/', function () {
 });
 
 Route::get('hello', function () {
+//    sleep(0);
     return inertia('Hello', [
         'name' =>'Tanvir Hossen Bappy',
         'profession' =>'BackEnd Developer',
