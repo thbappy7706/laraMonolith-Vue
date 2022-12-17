@@ -1,6 +1,5 @@
 <script setup>
 
-
 defineProps({
     name: String,
     profession: String,
