@@ -29,6 +29,7 @@ Route::get('hello', function () {
     return inertia('Hello', [
         'name' =>'Tanvir Hossen Bappy',
         'profession' =>'BackEnd Developer',
+        'skills' =>['Laravel','Vue','Inertia',' FlowBite', 'LiveWire']
         ]);
 })->name('hello');
 
