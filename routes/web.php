@@ -38,6 +38,18 @@ Route::get('/dashboard', function () {
     return Inertia::render('Dashboard');
 })->middleware(['auth', 'verified'])->name('dashboard');
 
+Route::get('/preserve',function (){
+    return inertia('Preserve',[
+        'time'=>now()->toTimeString()
+        ]);
+})->name('preserve');
+
+//Route::post('/log-out', function () {
+////    dd(request('foo'));
+//    dd("Please Logout from here");
+//    return inertia('Settings');
+//})->name('test.log');
+
 Route::middleware('auth')->group(function () {
     Route::get('/profile', [ProfileController::class, 'edit'])->name('profile.edit');
     Route::patch('/profile', [ProfileController::class, 'update'])->name('profile.update');
