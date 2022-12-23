@@ -23,6 +23,13 @@ import NavLink from "@/Shared/NavLink.vue";
                  Settings
              </NavLink>
          </li>
+
+         <li>
+             <NavLink :href="route('welcome')" :active="$page.component === 'Welcome'">
+                 Landing
+             </NavLink>
+         </li>
+
      </ul>
  </nav>
 

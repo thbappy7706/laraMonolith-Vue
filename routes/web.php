@@ -23,7 +23,7 @@ Route::get('welcome', function () {
         'laravelVersion' => Application::VERSION,
         'phpVersion' => PHP_VERSION,
     ]);
-});
+})->name('welcome');
 
 
 Route::get('/', function (){

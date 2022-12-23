@@ -1,6 +1,6 @@
 <script setup>
 import {Link} from '@inertiajs/inertia-vue3';
-import NavLink from "@/Shared/NavLink";
+import NavLink from "@/Shared/NavLink.vue";
 
 defineProps({
     canLogin: Boolean,
