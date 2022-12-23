@@ -2,6 +2,8 @@
 import Nav from "@/Shared/Nav.vue";
 import {computed,reactive} from "vue";
 import { usePage } from '@inertiajs/inertia-vue3'
+import { Head} from "@inertiajs/inertia-vue3";
+
 defineProps({
 
 });
@@ -23,6 +25,9 @@ const hasItems = computed(() => {
 </script>
 
 <template>
+    <Head>
+
+    </Head>
     <section class="p-6 bg-gray-200">
         <header class="flex justify-between">
        <div class="flex items-center">
