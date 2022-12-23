@@ -1,18 +1,6 @@
-<script setup>
-import Layout from "@/Shared/Layout.vue";
-defineProps({});
-</script>
 <template>
-
-    <Layout>
-        <h1 class="text-3xl">
-            Settings
-        </h1>
-
-    </Layout>
-
+    <h1 class="text-3xl">Settings</h1>
 </template>
-
 <style scoped>
 
 </style>
