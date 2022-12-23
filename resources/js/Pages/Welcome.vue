@@ -1,5 +1,6 @@
 <script setup>
 import {Link} from '@inertiajs/inertia-vue3';
+import NavLink from "@/Shared/NavLink";
 
 defineProps({
     canLogin: Boolean,
@@ -23,11 +24,13 @@ defineProps({
                     </a>
                     <nav
                         class="flex flex-wrap items-center mb-5 text-base md:mb-0 md:pl-8 md:ml-8 md:border-l md:border-gray-200">
-                        <a href="#_" class="mr-5 font-medium leading-6 text-gray-600 hover:text-gray-900">Home</a>
+                        <a href="#_" class="mr-5 font-medium leading-6 text-gray-600 hover:text-gray-900" :class="{'font-bold underline': $page.component =='Welcome'}">Home</a>
                         <a href="#_" class="mr-5 font-medium leading-6 text-gray-600 hover:text-gray-900">Features</a>
                         <a href="#_" class="mr-5 font-medium leading-6 text-gray-600 hover:text-gray-900">Pricing</a>
                         <a :href="route('preserve')" class="mr-5 font-medium leading-6 text-gray-600 hover:text-gray-900">Preserve</a>
-                        <a :href="route('hello')" class="mr-5 font-medium leading-6 text-gray-600 hover:text-gray-900">Greeting</a>
+<!--                        <Link :href="route('hello')" class="mr-5 font-medium leading-6 text-gray-600 hover:text-gray-900">Greeting</Link>-->
+                        <NavLink href="/" :active="$page.component =='Welcome'"> Home</NavLink>
+                        <NavLink :href="route('hello')" :active="$page.component =='Welcome'"> Greeting</NavLink>
 
 <!--                        <Link :href="route('test.log')" method="post" as="button" :data="{foo:'bar'}" class="mr-5 font-medium leading-6 text-gray-600 hover:text-gray-900">Test Log</Link>-->
                     </nav>

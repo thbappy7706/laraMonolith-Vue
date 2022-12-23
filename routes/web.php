@@ -16,7 +16,7 @@ use Inertia\Inertia;
 |
 */
 
-Route::get('/', function () {
+Route::get('welcome', function () {
     return Inertia::render('Welcome', [
         'canLogin' => Route::has('login'),
         'canRegister' => Route::has('register'),
@@ -24,6 +24,18 @@ Route::get('/', function () {
         'phpVersion' => PHP_VERSION,
     ]);
 });
+
+
+Route::get('/', function (){
+    return inertia('Home');
+})->name('home');
+Route::get('settings',function (){
+    return inertia('Settings');
+})->name('settings');
+
+Route::get('users',function (){
+    return inertia('Users');
+})->name('users');
 
 Route::get('hello', function () {
 //    sleep(0);
