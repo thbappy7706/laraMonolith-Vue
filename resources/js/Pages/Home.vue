@@ -7,7 +7,7 @@ defineProps({
 </script>
 <template>
 
-<Layout>
+<Layout >
 <!--    <Head>-->
 <!--        <title>Home</title>-->
 <!--        <meta-->
