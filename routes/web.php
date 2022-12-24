@@ -4,6 +4,7 @@ use App\Http\Controllers\ProfileController;
 use Illuminate\Foundation\Application;
 use Illuminate\Support\Facades\Route;
 use Inertia\Inertia;
+use Illuminate\Support\Facades\Request;
 
 /*
 |--------------------------------------------------------------------------
@@ -34,7 +35,22 @@ Route::get('settings',function (){
 })->name('settings');
 
 Route::get('users',function (){
-    return inertia('Users');
+    return inertia('Users',[
+        'users'=> \App\Models\User::query()
+            ->when(Request::input('search'),function ($query,$search){
+                $query->where('name','like',"%{$search}%");
+            })
+            ->paginate(10)
+            ->withQueryString()
+            ->through(fn($user)=>[
+            'id'=>$user->id,
+            'name'=>$user->name
+        ]),
+
+    'filters'=> Request::only(['search'])
+//    'users'=> \App\Models\User::paginate(10)
+
+    ]);
 })->name('users');
 
 Route::get('hello', function () {
