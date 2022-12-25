@@ -13,7 +13,7 @@ import NavLink from "@/Shared/NavLink.vue";
          </li>
 
          <li>
-             <NavLink :href="route('users.index')" :active="$page.component === 'Users'">
+             <NavLink :href="route('users.index')" :active="$page.component === 'Users/Index'">
                  Users
              </NavLink>
          </li>

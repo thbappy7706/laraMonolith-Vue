@@ -31,4 +31,21 @@ class UserController extends Controller
     {
         return inertia('Users/Create');
     }
+    public function store(Request $request)
+    {
+        $validatedData = $request->validate([
+            'name' => ['required', 'max:255'],
+            'email' => ['required', 'email:rfc,dns'],
+            'phone' => ['required'],
+            'password' => ['required', 'string', 'min:6',],
+        ]);
+
+        $user = User::create($validatedData);
+        if ($user){
+            return redirect()->route('users.index');
+    }else{
+            return redirect()->back();
+
+        }
+    }
 }
