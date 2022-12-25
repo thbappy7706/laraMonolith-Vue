@@ -1,6 +1,13 @@
 <script setup>
 
+import {computed} from "vue";
+
+const isLoggedIn = computed(() => {
+    return usePage().props.value.auth.isLogIn
+})
+
 import NavLink from "@/Shared/NavLink.vue";
+import {usePage} from "@inertiajs/inertia-vue3";
 </script>
 
 <template>
@@ -27,6 +34,12 @@ import NavLink from "@/Shared/NavLink.vue";
          <li>
              <NavLink :href="route('welcome')" :active="$page.component === 'Welcome'">
                  Landing
+             </NavLink>
+         </li>
+
+         <li v-if="isLoggedIn">
+             <NavLink :href="route('logout')"  method="post" as="button">
+                 Logout
              </NavLink>
          </li>
 

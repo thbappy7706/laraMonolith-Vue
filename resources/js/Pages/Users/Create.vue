@@ -1,14 +1,19 @@
 <script setup>
-import { useForm } from "@inertiajs/inertia-vue3";
+import { useForm } from "@inertiajs/inertia-vue3"
+import {ref} from "vue";
 let form = useForm({
     name: '',
     email: '',
     phone: '',
     password: '',
 });
+// let processing = ref(false);
+
 const submit = () => {
+    // processing.value = true;
     form.post(route("users.store"));
 };
+
 
 </script>
 

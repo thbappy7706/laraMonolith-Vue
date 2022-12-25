@@ -2,6 +2,7 @@
 import Pagination from "@/Shared/Pagination.vue";
 import { Inertia } from '@inertiajs/inertia';
 import {ref,watch} from "vue";
+import {debounce} from "lodash";
 
 let props = defineProps({
     users: Object,
@@ -9,10 +10,16 @@ let props = defineProps({
 });
 let search = ref(props.filters.search);
 
-watch(search,(value) => {
-    // console.log('changed ' + value)
-    Inertia.get('/users',{search:value},{preserveState:true,replace:true});
-});
+// watch(search,(value) => {
+//     // console.log('changed ' + value)
+//     Inertia.get('/users',{search:value},{preserveState:true,replace:true});
+// });
+
+// with debounce
+watch(search, debounce(function (value) {
+    Inertia.get('/users', { search: value }, { preserveState: true, replace: true });
+}, 300));
+
 </script>
 <template>
     <Head title="Users"/>
