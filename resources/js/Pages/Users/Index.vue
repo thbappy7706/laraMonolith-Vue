@@ -16,10 +16,11 @@ watch(search,(value) => {
 </script>
 <template>
     <Head title="Users"/>
-  <div class="flex justify-between mb-6">
-      <h1 class="text-3xl">Users</h1>
-      <input v-model="search" class="border px-2 rounded-lg" type="text" placeholder="Search..." />
-  </div>
+    <div class="flex justify-between mb-6">
+        <h1 class="text-3xl">Users</h1>
+        <input v-model="search" class="border px-2 rounded-lg" type="text" placeholder="Search..." />
+        <Link :href="route('users.create')" class="text-white bg-gradient-to-r from-teal-400 via-teal-500 to-teal-600 hover:bg-gradient-to-br focus:ring-4 focus:outline-none focus:ring-teal-300 dark:focus:ring-teal-800 font-medium rounded-lg text-sm px-5 py-2.5 text-center mr-2 mb-2">Create User</Link>
+    </div>
 
     <div class="flex flex-col mt-7">
         <div class="-my-2 overflow-x-auto sm:-mx-6 lg:-mx-8">

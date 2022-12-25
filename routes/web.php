@@ -34,24 +34,12 @@ Route::get('settings',function (){
     return inertia('Settings');
 })->name('settings');
 
-Route::get('users',function (){
-    return inertia('Users',[
-        'users'=> \App\Models\User::query()
-            ->when(Request::input('search'),function ($query,$search){
-                $query->where('name','like',"%{$search}%");
-            })
-            ->paginate(10)
-            ->withQueryString()
-            ->through(fn($user)=>[
-            'id'=>$user->id,
-            'name'=>$user->name
-        ]),
+Route::get('users',[\App\Http\Controllers\UserController::class,'index'])->name('users.index');
+Route::get('user-create',[\App\Http\Controllers\UserController::class,'create'])->name('users.create');
+Route::post('user-store',[\App\Http\Controllers\UserController::class,'store'])->name('users.store');
 
-    'filters'=> Request::only(['search'])
-//    'users'=> \App\Models\User::paginate(10)
 
-    ]);
-})->name('users');
+
 
 Route::get('hello', function () {
 //    sleep(0);
