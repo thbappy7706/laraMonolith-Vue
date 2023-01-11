@@ -4,6 +4,7 @@ namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
 use App\Models\User;
+use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\Request as Req;
 use Inertia\Response;
 
@@ -20,9 +21,13 @@ class UserController extends Controller
             ->withQueryString()
             ->through(fn($user)=>[
             'id'=>$user->id,
-            'name'=>$user->name
+            'name'=>$user->name,
+                'edit'=> Auth::user()->can('edit',$user)
         ]),
-        'filters'=> Req::only(['search'])
+        'filters'=> Req::only(['search']),
+            'can'=>[
+                'createUser' => Auth::user()->can('create',User::class),
+            ],
 //    'users'=> \App\Models\User::paginate(10)
     ]);
     }
@@ -31,7 +36,7 @@ class UserController extends Controller
     {
         return inertia('Users/Create');
     }
-    public function store(Request $request)
+    public function store(Request $request): \Illuminate\Http\RedirectResponse
     {
         $validatedData = $request->validate([
             'name' => ['required', 'max:255'],
