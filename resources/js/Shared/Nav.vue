@@ -25,6 +25,13 @@ import {usePage} from "@inertiajs/inertia-vue3";
              </NavLink>
          </li>
 
+
+                <li>
+                 <NavLink :href="route('customers.index')" :active="$page.component === 'Customers/Index'">
+                 Customers
+             </NavLink>
+         </li>
+
          <li>
              <NavLink :href="route('settings')" :active="$page.component === 'Settings'">
                  Settings

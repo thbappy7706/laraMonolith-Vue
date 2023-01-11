@@ -8,7 +8,8 @@ module.exports = {
         './resources/views/**/*.blade.php',
         './resources/js/**/*.vue',
         "./resources/**/*.js",
-        "./node_modules/flowbite/**/*.js"
+        "./node_modules/flowbite/**/*.js",
+        "./node_modules/@protonemedia/inertiajs-tables-laravel-query-builder/**/*.{js,vue}"
 
     ],
 
