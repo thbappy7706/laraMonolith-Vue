@@ -1,10 +1,13 @@
 <script setup>
-import Footer from "./Footer.vue";
+import Footer from "../Components/Footer.vue";
+import Layout from "../Components/Layout.vue";
 </script>
 <template>
-    <h1>About</h1>
-    <br>
-<Footer/>
+
+        <h1>About</h1>
+        <br>
+
+
 </template>
 
 

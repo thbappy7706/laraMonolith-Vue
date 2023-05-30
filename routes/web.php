@@ -24,3 +24,7 @@ Route::get('test', function () {
 Route::get('about', function () {
     return inertia()->render('About');
 });
+
+Route::get('login', function () {
+    return inertia()->render('Login');
+});
