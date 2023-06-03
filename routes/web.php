@@ -17,8 +17,8 @@ Route::get('/', function () {
     return view('welcome');
 });
 
-Route::get('test', function () {
-    return inertia()->render('Test');
+Route::get('home', function () {
+    return inertia()->render('Home');
 });
 
 Route::get('about', function () {

@@ -1,10 +1,7 @@
 <template>
-    <header>
-        My App
-        <Link href="/about" name="About" component ="About">About</Link>
-        <Link href="/test" name="Test" component ="Test">Test</Link>
-        <Link href="/login" name="Login" component ="Login">Login</Link>
-    </header>
+    <NavBar/>
+
+
 
     <slot/>
 
@@ -17,6 +14,7 @@
 
 import Footer from "./Footer.vue";
 import {Link} from "@inertiajs/vue3";
+import NavBar from "./NavBar.vue";
 </script>
 
 <style scoped>
