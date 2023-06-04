@@ -17,9 +17,7 @@ Route::get('/', function () {
     return view('welcome');
 });
 
-Route::get('home', function () {
-    return inertia()->render('Home');
-});
+Route::get('home',[\App\Http\Controllers\MonitorController::class,'index']);
 
 Route::get('about', function () {
     return inertia()->render('About');

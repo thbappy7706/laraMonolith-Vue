@@ -1,8 +1,7 @@
 <script setup>
 import {ref} from "vue";
-import Footer from "../Components/Footer.vue";
-import Layout from "../Components/Layout.vue";
 const count = ref(0)
+let props = defineProps(['monitors']);
 </script>
 
 <template>
