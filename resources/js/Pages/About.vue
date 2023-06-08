@@ -1,10 +1,11 @@
 <script setup>
-import Footer from "../Components/Footer.vue";
-import Layout from "../Components/Layout.vue";
+import { Head } from '@inertiajs/vue3'
+
 </script>
 <template>
+    <Head title="About Page" />
 
-        <h1>About</h1>
+    <h1>About</h1>
         <br>
 
 

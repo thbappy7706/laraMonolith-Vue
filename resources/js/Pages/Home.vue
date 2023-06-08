@@ -1,18 +1,24 @@
 <script setup>
-import {ref} from "vue";
 import MonitorList from "../Components/Home/MonitorList.vue";
-
-const count = ref(0)
+import { Head } from '@inertiajs/vue3'
+import { Button } from 'flowbite-vue'
 let props = defineProps(['monitors']);
+import {Link} from "@inertiajs/vue3";
 </script>
 
 <template>
+    <Head title="Home" />
     <div class="mt-5">
         <h1 class="text-center text-rose-700 text-large">Monitor List</h1>
-
     </div>
+    <Link :href="route('')">
+        <Button class="flex-row mx-4 my-8" gradient="cyan">Add New Monitors</Button>
 
-    <MonitorList :monitors = "monitors"/>
+    </Link>
+
+
+
+    <MonitorList class="mt-4" :monitors = "monitors"/>
 
 
 </template>

@@ -4,6 +4,7 @@ import Layout from "./Components/Layout.vue";
 
 
 createInertiaApp({
+    title: (title) => (title == "" ? "Hello Inertia" : title),
     resolve: name => {
         const pages = import.meta.glob('./Pages/**/*.vue', {eager: true})
         const page = pages[`./Pages/${name}.vue`];
