@@ -18,6 +18,7 @@ Route::get('/', function () {
 });
 
 Route::get('home',[\App\Http\Controllers\MonitorController::class,'index']);
+Route::get('create-site',[\App\Http\Controllers\MonitorController::class,'createSite'])->name('sites.create');
 
 Route::get('about', function () {
     return inertia()->render('About');
@@ -26,3 +27,14 @@ Route::get('about', function () {
 Route::get('login', function () {
     return inertia()->render('Login');
 });
+
+Route::post('/auth/login', function (\Illuminate\Http\Request $request) {
+    $request->validate([
+        'email' => 'required|email',
+        'password' => 'required',
+    ]);
+
+    return inertia()->location('home');
+});
+
+

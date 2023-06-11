@@ -1,4 +1,7 @@
 <script setup>
+
+import Paginate from "@/Components/Paginate.vue";
+
 defineProps(['monitors'])
 </script>
 
@@ -21,7 +24,7 @@ defineProps(['monitors'])
             </tr>
             </thead>
             <tbody>
-            <tr class="bg-white border-b dark:bg-gray-900 dark:border-gray-700" v-for="monitor in monitors">
+            <tr class="bg-white border-b dark:bg-gray-900 dark:border-gray-700" v-for="monitor in monitors.data">
 
                 <td class="px-6 py-4">
                  {{monitor.site_name}}
@@ -39,6 +42,15 @@ defineProps(['monitors'])
             </tbody>
         </table>
     </div>
+
+
+<Paginate
+    :next="monitors.next_page_url"
+    :prev="monitors.prev_page_url"
+    :currentPage="monitors.current_page"
+    :lastPage="monitors.last_page"
+    :lastPageUrl="monitors.last_page_url"
+/>
 
 </template>
 

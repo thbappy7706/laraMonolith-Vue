@@ -1,8 +1,14 @@
 <script setup>
 import MonitorList from "../Components/Home/MonitorList.vue";
-import { Head } from '@inertiajs/vue3'
+import { Head,router } from '@inertiajs/vue3'
 import { Button } from 'flowbite-vue'
-let props = defineProps(['monitors']);
+defineProps(['monitors']);
+function createSite()
+{
+    router.visit('create-site');
+}
+
+
 import {Link} from "@inertiajs/vue3";
 </script>
 
@@ -11,13 +17,8 @@ import {Link} from "@inertiajs/vue3";
     <div class="mt-5">
         <h1 class="text-center text-rose-700 text-large">Monitor List</h1>
     </div>
-    <Link :href="route('')">
-        <Button class="flex-row mx-4 my-8" gradient="cyan">Add New Monitors</Button>
 
-    </Link>
-
-
-
+        <Button @click="createSite" class="flex-row mx-4 my-8" gradient="cyan">Add New Monitors</Button>
     <MonitorList class="mt-4" :monitors = "monitors"/>
 
 

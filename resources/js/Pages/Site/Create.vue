@@ -1,10 +1,10 @@
 <template>
-    <slot/>
+hello
 </template>
 
 <script>
 export default {
-    name: "GuestLayout"
+    name: "Create"
 }
 </script>
 
