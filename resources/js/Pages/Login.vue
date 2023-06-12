@@ -4,6 +4,7 @@ import GuestLayout from "../Components/GuestLayout.vue";
 import {Link} from "@inertiajs/vue3";
 import {reactive} from "vue";
 import { useForm } from '@inertiajs/vue3'
+import { useToast } from "vue-toastification";
 
 
 defineOptions({layout: GuestLayout})
@@ -20,12 +21,18 @@ const form = useForm({
     remember: false,
 })
 
+const toast = useToast();
+
 function submitLoginForm()
 {
-
     form.post('/auth/login', {
         preserveScroll: true,
-        onSuccess: () => form.reset('password'),
+        onSuccess: () =>{
+            toast.success("You Are Logged In", {
+                timeout: 2000
+            });
+            form.reset('password')
+        }
     })
 }
 
